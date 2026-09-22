@@ -10,8 +10,21 @@
         ;
 };
 
+// コンパイラが求めている、SPIの物理ピン（D5, D4）のグループ定義
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 5)>,   // SCLK=D5
+                    <NRF_PSEL(SPIM_MOSI, 0, 4)>,  // SDIO=D4
+                    <NRF_PSEL(SPIM_MISO, 0, 4)>;  // SDIO=D4
+        };
+    };
+};
+
 &spi0 {
     status = "okay";
+    pinctrl-0 = <&spi0_default>; // ★ここが不足していたため怒られていました！
+    pinctrl-names = "default";   // ★ここが不足していたため怒られていました！
     cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>; // CS=NFC1
 
     trackball: trackball@0 {
