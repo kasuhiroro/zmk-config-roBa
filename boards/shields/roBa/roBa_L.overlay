@@ -31,7 +31,7 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&xiao_d 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // MOTION=D0
-        cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>; // CS=NFC1 (P0.09)
+        cs-gpiod = <&gpio0 9 GPIO_ACTIVE_LOW>; // CS=NFC1 (P0.09)
     };
 };
 
