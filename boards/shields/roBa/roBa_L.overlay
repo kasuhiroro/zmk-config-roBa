@@ -32,7 +32,7 @@
         reg = <0>;
         spi-max-frequency = <200000>; // マウスセンサの反応検証用に2MHzを200kHz
         irq-gpios = <&xiao_d 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // MOTION=D0
-        【完全確定】ZMK公式規格の「1本線双方向通信（3-wire）」の正しいフラグ名です！
+        spi-three-wire; // 【完全確定】ZMK公式規格の「1本線双方向通信（3-wire）」の正しいフラグ名です！
     };
 };
 
